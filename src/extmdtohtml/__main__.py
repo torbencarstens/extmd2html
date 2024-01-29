@@ -45,6 +45,7 @@ def index(path: str | None):
 <html>
   <head>
     <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'none'; object-src 'none'">
     <title>{title}</title>
   </head>
   <body>
