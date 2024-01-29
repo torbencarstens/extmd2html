@@ -29,7 +29,15 @@ spec:
           startupProbe:
             httpGet:
               port: http
-              path: /
+              path: /health
+          livenessProbe:
+            httpGet:
+              port: http
+              path: /health
+          readinessProbe:
+            httpGet:
+              port: http
+              path: /health
           resources:
             requests:
               cpu: {{ .Values.deployment.requests.cpu }}

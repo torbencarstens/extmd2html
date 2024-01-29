@@ -21,12 +21,17 @@ def md_to_html(md: str) -> str:
     return mistune.html(md)
 
 
+@app.get("/health")
+def health():
+    return Response("", 200)
+
+
 @app.get("/<path:path>")
 @app.get("/", defaults={"path": None})
 def index(path: str | None):
     try:
         md = md_to_html(get_url(path))
-    except httpx.HTTPStatusError:
+    except (TypeError, httpx.HTTPStatusError):
         return Response(
             f"Markdown document not found on remote <code>{BASE_URL}/{path}</code>",
             404
