@@ -49,8 +49,7 @@ def index(path: str | None):
   <body>
     {body}
   </body>
-</html>
-    """
+</html>""".strip()
 
 
 if __name__ == "__main__":
