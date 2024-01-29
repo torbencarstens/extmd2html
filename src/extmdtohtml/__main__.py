@@ -44,6 +44,7 @@ def index(path: str | None):
     return f"""<!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width">
     <title>{title}</title>
   </head>
   <body>
