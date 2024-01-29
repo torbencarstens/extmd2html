@@ -41,17 +41,22 @@ def index(path: str | None):
     if match := re.search(r"<h1>(.*?)</h1>", body, re.IGNORECASE | re.UNICODE):
         title = match.group(1)
 
-    return f"""<!DOCTYPE html>
+    csp = "script-src 'none'; object-src 'none'"
+    response = Response(f"""<!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'none'; object-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="{csp}">
     <title>{title}</title>
   </head>
   <body>
     {body}
   </body>
-</html>""".strip()
+</html>""".strip(), headers={
+        "Content-Security-Policy": csp
+    })
+
+    return response
 
 
 if __name__ == "__main__":
