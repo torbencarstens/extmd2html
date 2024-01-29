@@ -26,6 +26,6 @@ ingress:
 
 service:
   name: extmd2html
-  port: 80
-  targetPort: 80
+  port: 8080
+  targetPort: 8080
   appSelector: extmd2html
