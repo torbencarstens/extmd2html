@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "ext-md-to-html"
+version = "0.1.0"
+description = ""
+authors = ["Torben Carstens <git@carstens.tech>"]
+readme = "README.md"
+packages = [{ include = "extmdtohtml", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+httpx = "^0.26.0"
+flask = "^3.0.1"
+mistune = "^3.0.2"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.7.1"
+black = "^23.12.1"
+ruff = "^0.1.12"
+pytest = "^7.4.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100

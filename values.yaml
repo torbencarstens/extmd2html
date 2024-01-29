@@ -1,0 +1,31 @@
+namespace:
+  name: static
+
+deployment:
+  name: extmd2html
+  image: __IMAGE_NAME__:__TAG__
+  imagePullPolicy: IfNotPresent
+  revisionHistoryLimit: 1
+  replicas: 3
+  labels:
+    app: extmd2html
+  requests:
+    cpu: 100m
+    memory: 100Mi
+  limit:
+    cpu: 300m
+    memory: 300Mi
+
+ingress:
+  name: md2html
+  hosts:
+    - name: "md.carstens.tech"
+    - name: "*.md.carstens.tech"
+  secret: tls-extmd2html
+  issuer: letsencrypt-issuer
+
+service:
+  name: extmd2html
+  port: 80
+  targetPort: 80
+  appSelector: extmd2html
