@@ -10,12 +10,12 @@ metadata:
       cert-manager.io/issue-temporary-certificate: "false"
       cert-manager.io/cluster-issuer: {{ default "letsencrypt-issuer" .Values.ingress.issuer | quote }}
     {{- end }}
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-    nginx.ingress.kubernetes.io/server-snippet: |
-      if ($host ~ "*.md.carstens.tech")
-      {
-          rewrite ^ https://md.carstens.tech$request_uri permanent;
-      }
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+      nginx.ingress.kubernetes.io/server-snippet: |
+        if ($host ~ "*.md.carstens.tech")
+        {
+            rewrite ^ https://md.carstens.tech$request_uri permanent;
+        }
 spec:
   tls:
     - secretName: {{ .Values.ingress.secret }}
