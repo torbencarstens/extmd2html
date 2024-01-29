@@ -1,4 +1,4 @@
-FROM ghcr.io/blindfoldedsurgery/poetry:1.1.1-pipx-3.11-bookworm
+FROM ghcr.io/blindfoldedsurgery/poetry:1.1.1-pipx-3.12-bookworm
 
 RUN apt-get update && \
     apt-get install gcc -y && \
