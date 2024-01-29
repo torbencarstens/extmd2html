@@ -1,17 +1,14 @@
-FROM ghcr.io/blindfoldedsurgery/poetry:1.1.1-pipx-3.11-bookworm
-
-RUN apt-get update && \
-    apt-get install gcc -y && \
-    rm -rf /var/lib/apt/lists/*
+FROM ghcr.io/blindfoldedsurgery/poetry:1.1.1-pipx-3.12-bookworm
 
 WORKDIR /usr/src/app
 
 ADD poetry.toml .
 ADD poetry.lock .
 ADD pyproject.toml .
+ADD README.md .
 
-RUN poetry install --no-interaction --ansi --only-root
+ADD src/extmdtohtml/ src/extmdtohtml/
 
-ADD src/extmdtohtml/ .
+RUN poetry install --no-interaction --ansi --without dev
 
 CMD poetry run python src/extmdtohtml/__main__.py
