@@ -53,6 +53,21 @@ def index(path: str | None):
             background-color: #232323;
             color: #b2b2b2;
         }}
+        blockquote {{
+          background: #434343;
+          border-left: 10px solid #ccc;
+          margin: 1.5em 10px;
+          padding: 0.5em 10px;
+        }}
+        blockquote:before {{
+          color: #ccc;
+          line-height: 0.1em;
+          margin-right: 0.25em;
+          vertical-align: -0.4em;
+        }}
+        blockquote p {{
+          display: inline;
+        }}
     </style>
   </head>
   <body>
