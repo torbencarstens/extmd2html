@@ -48,6 +48,12 @@ def index(path: str | None):
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="Content-Security-Policy" content="{csp}">
     <title>{title}</title>
+    <style>
+        body {{
+            background-color: #232323;
+            color: #b2b2b2;
+        }}
+    </style>
   </head>
   <body>
     {body}
