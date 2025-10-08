@@ -1,4 +1,4 @@
-FROM ghcr.io/blindfoldedsurgery/poetry:2.0.2-pipx-3.12-bookworm
+FROM ghcr.io/blindfoldedsurgery/poetry:4.0.0-pipx-3.12-bookworm
 
 WORKDIR /usr/src/app
 
