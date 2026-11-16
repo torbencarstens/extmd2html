@@ -16,7 +16,7 @@ mistune = "^3.0.2"
 mypy = "^1.7.1"
 black = "^25.0.0"
 ruff = "^0.14.0"
-pytest = "^8.0.0"
+pytest = "^9.0.0"
 
 [build-system]
 requires = ["poetry-core"]
